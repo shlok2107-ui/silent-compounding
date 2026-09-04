@@ -1,0 +1,1 @@
+MAST — table of 7 real MAS frameworks (ChatDev, MetaGPT, HyperAgent, AppWorld, AG2/MathChat, Magentic-One, OpenManus), HE/HA/LA annotation, trace counts 30–206 — precedent for our judge-validation sample size (Appendix).
