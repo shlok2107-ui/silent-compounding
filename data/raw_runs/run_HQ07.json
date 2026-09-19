@@ -1,0 +1,23 @@
+[
+    {
+        "agent": "research",
+        "output": {
+            "output": "FINDING: The arena where the Lewiston Maineiacs played their home games can seat 4,000 people.\n\nEVIDENCE: The Androscoggin Bank Colisée, which is the arena where the Lewiston Maineiacs played their home games, has a capacity of 4,000 (3,677 seated).\n\nCONFIDENCE (0-1): 1",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "summarizer",
+        "output": {
+            "output": "SUMMARY: The Lewiston Maineiacs' home arena, the Androscoggin Bank Colisée, has a capacity of 4,000, with 3,677 seats.\n\nCONFIDENCE (0-1): 1",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "action",
+        "output": {
+            "output": "FINAL ANSWER: 3,677\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    }
+]

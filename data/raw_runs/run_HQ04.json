@@ -1,0 +1,23 @@
+[
+    {
+        "agent": "research",
+        "output": {
+            "output": "FINDING: The director of the romantic comedy \"Big Stone Gap\" is based in New York City.\n\nEVIDENCE: Adriana Trigiani is an Italian American best-selling author of sixteen books, television writer, film director, and entrepreneur based in Greenwich Village, New York City. (Adriana Trigiani is the director of the romantic comedy \"Big Stone Gap\")\n\nCONFIDENCE: 1",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "summarizer",
+        "output": {
+            "output": "SUMMARY: The director of the romantic comedy \"Big Stone Gap\" is Adriana Trigiani, who is based in New York City. She is an Italian American best-selling author, television writer, film director, and entrepreneur.\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "action",
+        "output": {
+            "output": "FINAL ANSWER: New York City\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    }
+]

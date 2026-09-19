@@ -11,6 +11,7 @@ from langgraph.graph import END, StateGraph
 from agents.research_agent import research_node
 from agents.summarizer_agent import summarize_node
 from agents.action_agent import action_node
+from tracing.logger import log_run, save_raw_trace
 
 
 class PipelineState(TypedDict):
@@ -84,9 +85,41 @@ if __name__ == "__main__":
 
         final_state = pipeline.invoke(initial_state)
 
+        run_id = task["task_id"]
+
+        raw_trace_path = save_raw_trace(
+            run_id,
+            final_state["trace"],
+        )
+
+        final_answer = final_state["final_answer"]
+
+        log_run(
+            {
+                "run_id": run_id,
+                "pipeline": "P1",
+                "model": "llama3.1",
+                "task_id": task["task_id"],
+                "error_type": None,
+                "injection_stage": None,
+                "wording": None,
+                "error_detected": None,
+                "correction_stage": None,
+                "final_error": None,
+                "severity": None,
+                "self_reported_confidence": final_answer.get(
+                    "confidence",
+                    None,
+                ),
+                "actual_correct": None,
+                "raw_trace_path": raw_trace_path,
+            }
+        )
+
         print("\n" + "=" * 80)
         print(f"TASK: {task['task_id']}")
         print(f"QUESTION: {task['question']}")
         print(f"GOLD ANSWER: {task['gold_answer']}")
-        print(f"FINAL ANSWER: {final_state['final_answer']}")
+        print(f"FINAL ANSWER: {final_answer}")
+        print(f"RAW TRACE: {raw_trace_path}")
         print("=" * 80)

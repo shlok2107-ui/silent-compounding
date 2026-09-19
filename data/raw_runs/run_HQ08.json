@@ -1,0 +1,23 @@
+[
+    {
+        "agent": "research",
+        "output": {
+            "output": "FINDING: Annie Morton is older than Terry Richardson.\n\nEVIDENCE: Annie Morton was born on October 8, 1970, and Terry Richardson was born on August 14, 1965.\n\nCONFIDENCE (0-1): 1",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "summarizer",
+        "output": {
+            "output": "SUMMARY: Annie Morton is older than Terry Richardson because she was born on October 8, 1970, while Terry Richardson was born on August 14, 1965.\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "action",
+        "output": {
+            "output": "FINAL ANSWER: Annie Morton is older.\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    }
+]

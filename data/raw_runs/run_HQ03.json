@@ -1,0 +1,23 @@
+[
+    {
+        "agent": "research",
+        "output": {
+            "output": "FINDING: The Laleli Mosque and Esma Sultan Mansion are not located in the same neighborhood.\n\nEVIDENCE: The Laleli Mosque is located in Laleli, Fatih, Istanbul, Turkey, while the Esma Sultan Mansion is located in Ortaköy neighborhood of Istanbul, Turkey.\n\nCONFIDENCE: 1",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "summarizer",
+        "output": {
+            "output": "SUMMARY: The Laleli Mosque and Esma Sultan Mansion are in different neighborhoods. The Laleli Mosque is in Laleli, Fatih, Istanbul, while the Esma Sultan Mansion is in Ortaköy.\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "action",
+        "output": {
+            "output": "FINAL ANSWER: No\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    }
+]

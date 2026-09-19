@@ -1,0 +1,11 @@
+run_id,pipeline,model,task_id,error_type,injection_stage,wording,error_detected,correction_stage,final_error,severity,self_reported_confidence,actual_correct,raw_trace_path
+HQ00,P1,llama3.1,HQ00,,,,,,,,1.0,,data/raw_runs/run_HQ00.json
+HQ01,P1,llama3.1,HQ01,,,,,,,,0.8,,data/raw_runs/run_HQ01.json
+HQ02,P1,llama3.1,HQ02,,,,,,,,1.0,,data/raw_runs/run_HQ02.json
+HQ03,P1,llama3.1,HQ03,,,,,,,,1.0,,data/raw_runs/run_HQ03.json
+HQ04,P1,llama3.1,HQ04,,,,,,,,1.0,,data/raw_runs/run_HQ04.json
+HQ05,P1,llama3.1,HQ05,,,,,,,,1.0,,data/raw_runs/run_HQ05.json
+HQ06,P1,llama3.1,HQ06,,,,,,,,1.0,,data/raw_runs/run_HQ06.json
+HQ07,P1,llama3.1,HQ07,,,,,,,,1.0,,data/raw_runs/run_HQ07.json
+HQ08,P1,llama3.1,HQ08,,,,,,,,1.0,,data/raw_runs/run_HQ08.json
+HQ09,P1,llama3.1,HQ09,,,,,,,,1.0,,data/raw_runs/run_HQ09.json

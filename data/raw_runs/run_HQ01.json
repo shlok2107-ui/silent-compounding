@@ -1,0 +1,23 @@
+[
+    {
+        "agent": "research",
+        "output": {
+            "output": "FINDING: Janet Waldo, the voice actress who portrayed Corliss Archer in the radio series \"Meet Corliss Archer\", held a government position as the Chief of Protocol of the United States.\n\nEVIDENCE: \"As an adult, she was named United States ambassador to Ghana and to Czechoslovakia and also served as Chief of Protocol of the United States.\" (from the Shirley Temple section)\n\nCONFIDENCE: 0.8",
+            "confidence": 0.8
+        }
+    },
+    {
+        "agent": "summarizer",
+        "output": {
+            "output": "SUMMARY: Janet Waldo, the voice actress who portrayed Corliss Archer, held a government position as the Chief of Protocol of the United States, and also served as United States ambassador to Ghana and Czechoslovakia.\n\nCONFIDENCE (0-1): 0.8",
+            "confidence": 0.8
+        }
+    },
+    {
+        "agent": "action",
+        "output": {
+            "output": "FINAL ANSWER: Chief of Protocol of the United States\n\nCONFIDENCE (0-1): 0.8",
+            "confidence": 0.8
+        }
+    }
+]

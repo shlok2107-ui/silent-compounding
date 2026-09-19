@@ -1,0 +1,23 @@
+[
+    {
+        "agent": "research",
+        "output": {
+            "output": "FINDING: Scott Derrickson and Ed Wood were of the same nationality.\n\nEVIDENCE: Scott Derrickson is described as an \"American director, screenwriter and producer\" in the context, and Ed Wood is described as an \"American filmmaker, actor, writer, producer, and director\" in the context.\n\nCONFIDENCE: 1",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "summarizer",
+        "output": {
+            "output": "SUMMARY: Scott Derrickson and Ed Wood are of the same nationality, as both are described as American in the context provided.\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    },
+    {
+        "agent": "action",
+        "output": {
+            "output": "FINAL ANSWER: Yes\n\nCONFIDENCE (0-1): 1.0",
+            "confidence": 1.0
+        }
+    }
+]
