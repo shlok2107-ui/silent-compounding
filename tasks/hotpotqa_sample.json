@@ -1,0 +1,52 @@
+[
+  {
+    "task_id": "HQ00",
+    "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "gold_answer": "yes"
+  },
+  {
+    "task_id": "HQ01",
+    "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+    "gold_answer": "Chief of Protocol"
+  },
+  {
+    "task_id": "HQ02",
+    "question": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+    "gold_answer": "Animorphs"
+  },
+  {
+    "task_id": "HQ03",
+    "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+    "gold_answer": "no"
+  },
+  {
+    "task_id": "HQ04",
+    "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+    "gold_answer": "Greenwich Village, New York City"
+  },
+  {
+    "task_id": "HQ05",
+    "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+    "gold_answer": "YG Entertainment"
+  },
+  {
+    "task_id": "HQ06",
+    "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+    "gold_answer": "Eenasul Fateh"
+  },
+  {
+    "task_id": "HQ07",
+    "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+    "gold_answer": "3,677 seated"
+  },
+  {
+    "task_id": "HQ08",
+    "question": "Who is older, Annie Morton or Terry Richardson?",
+    "gold_answer": "Terry Richardson"
+  },
+  {
+    "task_id": "HQ09",
+    "question": "Are Local H and For Against both from the United States?",
+    "gold_answer": "yes"
+  }
+]

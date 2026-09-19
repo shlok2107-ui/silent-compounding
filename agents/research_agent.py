@@ -2,7 +2,7 @@ import re
 
 from langchain_ollama import ChatOllama
 
-llm = ChatOllama(model="llama3.1", temperature=0.5, max_tokens=500)
+llm = ChatOllama(model="llama3.1", temperature=0.5, max_tokens=250)
 
 
 def call_llm(prompt: str) -> str:
