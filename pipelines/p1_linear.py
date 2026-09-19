@@ -15,6 +15,7 @@ from agents.action_agent import action_node
 
 class PipelineState(TypedDict):
     question: str
+    context: dict
     research_output: dict
     summary: dict
     final_answer: dict
@@ -22,10 +23,12 @@ class PipelineState(TypedDict):
 
 
 def summarize_node_adapter(state):
-    result = summarize_node({
-        "research_output": state["research_output"],
-        "trace": state["trace"],
-    })
+    result = summarize_node(
+        {
+            "research_output": state["research_output"],
+            "trace": state["trace"],
+        }
+    )
 
     return {
         "summary": result["summary_output"],
@@ -34,11 +37,13 @@ def summarize_node_adapter(state):
 
 
 def action_node_adapter(state):
-    result = action_node({
-        "question": state["question"],
-        "summary_output": state["summary"],
-        "trace": state["trace"],
-    })
+    result = action_node(
+        {
+            "question": state["question"],
+            "summary_output": state["summary"],
+            "trace": state["trace"],
+        }
+    )
 
     return {
         "final_answer": result["action_output"],
@@ -70,6 +75,7 @@ if __name__ == "__main__":
     for task in tasks:
         initial_state = {
             "question": task["question"],
+            "context": task["context"],
             "research_output": {},
             "summary": {},
             "final_answer": {},
