@@ -11,6 +11,7 @@ from langgraph.graph import END, StateGraph
 from agents.research_agent import research_node
 from agents.summarizer_agent import summarize_node
 from agents.action_agent import action_node
+from injection.injector import inject_error
 from tracing.logger import log_run, save_raw_trace
 
 
@@ -21,6 +22,71 @@ class PipelineState(TypedDict):
     summary: dict
     final_answer: dict
     trace: list
+    inject: bool
+    error_type: str | None
+    wording: str | None
+
+
+def research_node_adapter(state):
+    result = research_node(
+        {
+            "question": state["question"],
+            "context": state["context"],
+            "trace": state["trace"],
+        }
+    )
+
+    research_output = result["research_output"]
+    trace = result["trace"]
+
+    if not state.get("inject", False):
+        return {
+            "research_output": research_output,
+            "trace": trace,
+        }
+
+    error_type = state.get("error_type")
+    wording = state.get("wording")
+
+    if not error_type:
+        raise ValueError(
+            "error_type must be provided when inject=True."
+        )
+
+    if not wording:
+        raise ValueError(
+            "wording must be provided when inject=True."
+        )
+
+    clean_output = research_output.get("output", "")
+
+    corrupted_output, error_template = inject_error(
+        clean_output=clean_output,
+        error_type=error_type,
+        wording=wording,
+    )
+
+    injected_research_output = dict(research_output)
+    injected_research_output["output"] = corrupted_output
+
+    trace.append(
+        {
+            "agent": "error_injector",
+            "output": {
+                "error_type": error_template.error_type,
+                "wording": wording,
+                "original_claim": error_template.original_claim_pattern,
+                "injected_claim": error_template.injected_claim,
+                "description": error_template.description,
+                "corrupted_output": corrupted_output,
+            },
+        }
+    )
+
+    return {
+        "research_output": injected_research_output,
+        "trace": trace,
+    }
 
 
 def summarize_node_adapter(state):
@@ -54,7 +120,7 @@ def action_node_adapter(state):
 
 graph = StateGraph(PipelineState)
 
-graph.add_node("research", research_node)
+graph.add_node("research", research_node_adapter)
 graph.add_node("summarize", summarize_node_adapter)
 graph.add_node("action", action_node_adapter)
 
@@ -67,6 +133,27 @@ graph.add_edge("action", END)
 pipeline = graph.compile()
 
 
+def run_pipeline(
+    task,
+    inject=False,
+    error_type=None,
+    wording=None,
+):
+    initial_state = {
+        "question": task["question"],
+        "context": task["context"],
+        "research_output": {},
+        "summary": {},
+        "final_answer": {},
+        "trace": [],
+        "inject": inject,
+        "error_type": error_type,
+        "wording": wording,
+    }
+
+    return pipeline.invoke(initial_state)
+
+
 if __name__ == "__main__":
     with open("tasks/hotpotqa_sample.json", "r") as file:
         tasks = json.load(file)
@@ -74,16 +161,12 @@ if __name__ == "__main__":
     print(f"Loaded {len(tasks)} questions.")
 
     for task in tasks:
-        initial_state = {
-            "question": task["question"],
-            "context": task["context"],
-            "research_output": {},
-            "summary": {},
-            "final_answer": {},
-            "trace": [],
-        }
-
-        final_state = pipeline.invoke(initial_state)
+        final_state = run_pipeline(
+            task,
+            inject=False,
+            error_type=None,
+            wording=None,
+        )
 
         run_id = task["task_id"]
 
